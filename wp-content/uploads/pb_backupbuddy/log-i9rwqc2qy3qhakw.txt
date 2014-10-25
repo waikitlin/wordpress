@@ -1,0 +1,7 @@
+---
+Fatal PHP error encountered:
+type => 1
+message => Maximum execution time of 10 seconds exceeded
+file => /home/a3321611/public_html/wp-admin/includes/class-pclzip.php
+line => 2690
+---
