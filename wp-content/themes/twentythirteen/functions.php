@@ -546,3 +546,33 @@ function twentythirteen_customize_preview_js() {
 	wp_enqueue_script( 'twentythirteen-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20130226', true );
 }
 add_action( 'customize_preview_init', 'twentythirteen_customize_preview_js' );
+
+function list_hooked_functions($tag=false){
+ global $wp_filter;
+ if ($tag) {
+  $hook[$tag]=$wp_filter[$tag];
+  if (!is_array($hook[$tag])) {
+  trigger_error("Nothing found for '$tag' hook", E_USER_WARNING);
+  return;
+  }
+ }
+ else {
+  $hook=$wp_filter;
+  ksort($hook);
+ }
+ echo '<pre>';
+ foreach($hook as $tag => $priority){
+  echo "<br />&gt;&gt;&gt;&gt;&gt;\t<strong>$tag</strong><br />";
+  ksort($priority);
+  foreach($priority as $priority => $function){
+  echo $priority;
+  foreach($function as $name => $properties) echo "\t$name<br />";
+  }
+ }
+ echo '</pre>';
+ return;
+}
+
+function my_specific_page_65_calls() {
+require_once("Jssor.Slider.FullPack/demos-jquery/full-width-slider.source.html");
+}

@@ -12,7 +12,12 @@
  */
 
 get_header(); ?>
-
+<!-- waikit: add call to jquery slider function if homepage -->
+<?php
+if ( get_the_ID() == '65' ) {
+my_specific_page_65_calls();
+}
+?>
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 
